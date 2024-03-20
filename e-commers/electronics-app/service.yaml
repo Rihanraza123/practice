@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: electronics-app-service
+  labels:
+    app: electronics-app
+spec:
+  type: ClusterIP
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+      protocol: TCP
+  selector:
+    app: electronics-app

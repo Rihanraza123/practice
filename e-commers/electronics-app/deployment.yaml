@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: electronics-app
+  labels:
+    app: electronics-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: electronics-app
+  template:
+    metadata:
+      labels:
+        app: electronics-app
+    spec:
+      containers:
+        - name: electronics-app
+          image: shubhamkalsait1/electronics-app:latest
+          ports:
+            - containerPort: 80   
+  strategy:
+    type: RollingUpdate

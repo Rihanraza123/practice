@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: laptop-app
+  labels:
+    app: laptop-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: laptop-app
+  template:
+    metadata:
+      labels:
+        app: laptop-app
+    spec:
+      containers:
+        - name: laptop-app
+          image: shubhamkalsait1/laptop-app:latest
+          ports:
+            - containerPort: 80   
+  strategy:
+    type: RollingUpdate
